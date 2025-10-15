@@ -1,51 +1,284 @@
-Text file: index_new.html
-Latest content with line numbers:
-2	<html lang="pt">
-3	<head>
-4	    <meta charset="UTF-8">
-5	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-6	    <title>Lista J - Pagina Oficial</title>
-7	    <link rel="icon" type="image/png" href="logo.svg">
-8	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-9	    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-10	    <link rel="stylesheet" href="styles.css">
-11	</head>
-12	<body>
-13	    <div class="toast-container" id="toast-container"></div>
-14	    
-15	    <!-- Navigation -->
-16	    <nav>
-17	        <div class="nav-container">
-18	            <div class="logo">
-19	                <img src="logo.svg" alt="Lista J">
-20	                <span>Lista J</span>
-21	            </div>
-22	            <ul class="nav-links" id="nav-links">
-23	                <li><a href="#home" class="active">Início</a></li>
-24	                <li><a href="#calendario">Calendário</a></li>
-25	                <li><a href="#equipa">Equipa</a></li>
-26	                <li><a href="#propostas">Propostas</a></li>
-27	                <li><a href="#contacto">Contacto</a></li>
-28	                <li><a href="#atividades">Atividades</a></li>
-29	                <li><a href="https://www.instagram.com/listajurassic/" target="_blank">Instagram</a></li>
-30	            </ul>
-31	            <button class="mobile-menu-btn" id="mobile-menu-btn">
-32	                <i class="fas fa-bars"></i>
-33	            </button>
-34	        </div>
-35	    </nav>
-36	
-37	    <!-- Hero Section -->
-38	    <section class="hero" id="home">
-39	        <div class="hero-container">
-40	            <div class="hero-content">
-41	                <h1>Lista J</h1>
-42	                <p>A Lista J é a representação dos alunos, com o objetivo de dinamizar a vida escolar, promover atividades culturais, desportivas e sociais, e garantir que a voz dos estudantes seja ouvida.</p>
-43	                <div class="hero-buttons">
-44	                    <a href="#atividades" class="btn btn-primary">Ver Atividades</a>
-45	                    <a href="#contacto" class="btn btn-secondary">Contactar-nos</a>
-46	                </div>
-47	            </div>
-48	            <div class="hero-image">
-49	                <img src="logo.svg" alt="Lista J Logo">
-50	            </div>
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lista J - Representação dos alunos. Dinamizamos a vida escolar, promovemos atividades culturais, desportivas e sociais.">
+    <meta name="keywords" content="Lista J, associação de estudantes, atividades escolares, representação estudantil">
+    <meta name="author" content="Lista J">
+    <meta name="theme-color" content="#ffc107">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Lista J - Página Oficial">
+    <meta property="og:description" content="A Lista J é a representação dos alunos, com o objetivo de dinamizar a vida escolar.">
+    <meta property="og:image" content="logo.svg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Lista J - Página Oficial">
+    <meta property="twitter:description" content="A Lista J é a representação dos alunos, com o objetivo de dinamizar a vida escolar.">
+    
+    <title>Lista J - Página Oficial</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="logo.svg">
+    <link rel="apple-touch-icon" href="logo.svg">
+    
+    <!-- External Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Toast Container -->
+    <div class="toast-container" id="toast-container" role="alert" aria-live="polite"></div>
+    
+    <!-- Navigation -->
+    <nav role="navigation" aria-label="Navegação principal">
+        <div class="nav-container">
+            <a href="#home" class="logo" aria-label="Lista J - Ir para o início">
+                <img src="logo.svg" alt="Logo Lista J">
+                <span>Lista J</span>
+            </a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home" class="active">Início</a></li>
+                <li><a href="#calendario">Calendário</a></li>
+                <li><a href="#equipa">Equipa</a></li>
+                <li><a href="#propostas">Propostas</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#atividades">Atividades</a></li>
+                <li><a href="https://www.instagram.com/listajurassic/" target="_blank" rel="noopener noreferrer" aria-label="Instagram da Lista J (abre em nova janela)">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Abrir menu de navegação" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Lista J</h1>
+                <p>A Lista J é a representação dos alunos, com o objetivo de dinamizar a vida escolar, promover atividades culturais, desportivas e sociais, e garantir que a voz dos estudantes seja ouvida.</p>
+                <div class="hero-buttons">
+                    <a href="#atividades" class="btn btn-primary">Ver Atividades</a>
+                    <a href="#contacto" class="btn btn-secondary">Contactar-nos</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="logo.svg" alt="Logo Lista J - Representação visual">
+            </div>
+        </div>
+    </section>
+
+    <!-- Calendário Section -->
+    <section id="calendario">
+        <div class="container">
+            <div class="section-header">
+                <i class="fas fa-calendar-alt section-icon"></i>
+                <h2>Calendário de Eventos</h2>
+                <p>Fique a par de todas as nossas atividades e eventos programados</p>
+            </div>
+            <div class="calendar-container">
+                <div class="event-item">
+                    <div class="event-date">
+                        <i class="fas fa-clock"></i>
+                        15 de Novembro, 2024
+                    </div>
+                    <div class="event-title">Torneio de Futebol</div>
+                    <div class="event-description">
+                        Participe no nosso torneio anual de futebol. Inscrições abertas para todas as turmas!
+                    </div>
+                </div>
+                <div class="event-item">
+                    <div class="event-date">
+                        <i class="fas fa-clock"></i>
+                        22 de Novembro, 2024
+                    </div>
+                    <div class="event-title">Festa de Natal</div>
+                    <div class="event-description">
+                        Celebre connosco a época festiva com música, comida e muita diversão!
+                    </div>
+                </div>
+                <div class="event-item">
+                    <div class="event-date">
+                        <i class="fas fa-clock"></i>
+                        5 de Dezembro, 2024
+                    </div>
+                    <div class="event-title">Workshop de Fotografia</div>
+                    <div class="event-description">
+                        Aprenda técnicas de fotografia com profissionais da área.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipa Section -->
+    <section id="equipa">
+        <div class="container">
+            <div class="section-header">
+                <i class="fas fa-users section-icon"></i>
+                <h2>A Nossa Equipa</h2>
+                <p>Conheça os membros dedicados que trabalham para tornar a escola melhor</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/120" alt="Foto de João Silva" class="member-avatar">
+                    <div class="member-name">João Silva</div>
+                    <div class="member-role">Presidente</div>
+                    <p class="member-bio">Responsável pela coordenação geral e representação dos estudantes.</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/120" alt="Foto de Maria Santos" class="member-avatar">
+                    <div class="member-name">Maria Santos</div>
+                    <div class="member-role">Vice-Presidente</div>
+                    <p class="member-bio">Apoia o presidente e coordena eventos culturais.</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/120" alt="Foto de Pedro Costa" class="member-avatar">
+                    <div class="member-name">Pedro Costa</div>
+                    <div class="member-role">Tesoureiro</div>
+                    <p class="member-bio">Gere as finanças e orçamento da associação.</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/120" alt="Foto de Ana Rodrigues" class="member-avatar">
+                    <div class="member-name">Ana Rodrigues</div>
+                    <div class="member-role">Secretária</div>
+                    <p class="member-bio">Responsável pela comunicação e documentação.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Propostas Section -->
+    <section id="propostas">
+        <div class="container">
+            <div class="section-header">
+                <i class="fas fa-lightbulb section-icon"></i>
+                <h2>As Nossas Propostas</h2>
+                <p>Conheça as nossas ideias para melhorar a experiência escolar</p>
+            </div>
+            <div class="cards-grid">
+                <div class="card">
+                    <i class="fas fa-book card-icon"></i>
+                    <h3>Biblioteca Digital</h3>
+                    <p>Implementação de uma plataforma online com recursos educativos acessíveis a todos os alunos.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-futbol card-icon"></i>
+                    <h3>Mais Desporto</h3>
+                    <p>Organização de torneios inter-turmas e atividades desportivas regulares.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-music card-icon"></i>
+                    <h3>Eventos Culturais</h3>
+                    <p>Promoção de concertos, exposições e workshops artísticos ao longo do ano.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-leaf card-icon"></i>
+                    <h3>Escola Sustentável</h3>
+                    <p>Iniciativas ecológicas para tornar a escola mais verde e sustentável.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-comments card-icon"></i>
+                    <h3>Voz aos Alunos</h3>
+                    <p>Criação de canais de comunicação direta entre alunos e direção.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-graduation-cap card-icon"></i>
+                    <h3>Apoio ao Estudo</h3>
+                    <p>Sessões de explicações e apoio académico gratuito para todos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Atividades Section -->
+    <section id="atividades">
+        <div class="container">
+            <div class="section-header">
+                <i class="fas fa-star section-icon"></i>
+                <h2>Atividades Realizadas</h2>
+                <p>Veja algumas das atividades que já organizámos</p>
+            </div>
+            <div class="cards-grid">
+                <div class="card">
+                    <i class="fas fa-camera card-icon"></i>
+                    <h3>Concurso de Fotografia</h3>
+                    <p>Os alunos mostraram o seu talento fotográfico com temas relacionados com a escola.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-pizza-slice card-icon"></i>
+                    <h3>Dia da Pizza</h3>
+                    <p>Evento de convívio com pizzas para todos os alunos no recreio.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-trophy card-icon"></i>
+                    <h3>Torneio de Basquetebol</h3>
+                    <p>Competição emocionante entre as turmas com prémios para os vencedores.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto Section -->
+    <section id="contacto">
+        <div class="container">
+            <div class="section-header">
+                <i class="fas fa-envelope section-icon"></i>
+                <h2>Entre em Contacto</h2>
+                <p>Tem alguma sugestão ou questão? Fale connosco!</p>
+            </div>
+            <form class="contact-form" id="contact-form" novalidate>
+                <div class="form-group">
+                    <label for="name">Nome</label>
+                    <input type="text" id="name" name="name" placeholder="O seu nome" required aria-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="o.seu.email@exemplo.com" required aria-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensagem</label>
+                    <textarea id="message" name="message" placeholder="Escreva a sua mensagem aqui..." required aria-required="true"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-paper-plane"></i> Enviar Mensagem
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Lista J. Todos os direitos reservados.</p>
+            <p>Feito com <i class="fas fa-heart" style="color: #e63946;"></i> pela Lista J</p>
+            <div class="social-links">
+                <a href="https://www.instagram.com/listajurassic/" target="_blank" rel="noopener noreferrer" aria-label="Instagram da Lista J">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook da Lista J">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="mailto:listaj@escola.pt" aria-label="Enviar email para Lista J">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
+
