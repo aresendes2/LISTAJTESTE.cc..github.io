@@ -449,7 +449,6 @@ fetch('/api/contact', {
 ## 📞 Suporte
 
 Para questões ou sugestões sobre o código:
-- **Email**: listaj@escola.pt
 - **Instagram**: [@listajurassic](https://www.instagram.com/listajurassic/)
 
 ---
