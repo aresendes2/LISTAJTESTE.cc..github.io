@@ -1,8 +1,9 @@
-//* ========================================
- //* Lista J - Página Oficial
- //* JavaScript Principal
- //* ========================================
- //
+/**
+ * ========================================
+ * Lista J - Página Oficial
+ * JavaScript Principal
+ * ========================================
+ */
 
 (function() {
     'use strict';
@@ -329,12 +330,13 @@
         // Inicializar funcionalidades
         initEventListeners();
         initSmoothScroll();
+        initTeamSlider();
         updateActiveNavLink();
         handleNavScroll();
         revealOnScroll();
         
         // Adicionar classe reveal a elementos que devem ter animação
-        const animatedElements = document.querySelectorAll('.card, .team-member, .event-item');
+        const animatedElements = document.querySelectorAll('.card, .event-item');
         animatedElements.forEach(element => {
             element.classList.add('reveal');
         });
@@ -365,5 +367,177 @@
 /**
  * ========================================
  * FIM DO SCRIPT
- * ======================================
+ * ========================================
  */
+
+
+
+
+    // ========================================
+    // 12. TEAM SLIDER
+    // ========================================
+    
+    /**
+     * Inicializar o slider da equipa
+     */
+    function initTeamSlider() {
+        const sliderTrack = document.getElementById('team-slider-track');
+        const prevBtn = document.getElementById('team-slider-prev');
+        const nextBtn = document.getElementById('team-slider-next');
+        const indicatorsContainer = document.getElementById('team-slider-indicators');
+        
+        if (!sliderTrack || !prevBtn || !nextBtn || !indicatorsContainer) return;
+        
+        const teamMembers = sliderTrack.querySelectorAll('.team-member');
+        const totalSlides = teamMembers.length;
+        let currentSlide = 0;
+        let startX = 0;
+        let isDragging = false;
+        
+        // Criar indicadores
+        for (let i = 0; i < totalSlides; i++) {
+            const indicator = document.createElement('div');
+            indicator.className = 'slider-indicator';
+            if (i === 0) indicator.classList.add('active');
+            indicator.addEventListener('click', () => goToSlide(i));
+            indicatorsContainer.appendChild(indicator);
+        }
+        
+        const indicators = indicatorsContainer.querySelectorAll('.slider-indicator');
+        
+        /**
+         * Ir para um slide específico
+         * @param {number} index - Índice do slide
+         */
+        function goToSlide(index) {
+            if (index < 0 || index >= totalSlides) return;
+            
+            currentSlide = index;
+            const offset = -currentSlide * 100;
+            sliderTrack.style.transform = `translateX(${offset}%)`;
+            
+            // Atualizar indicadores
+            indicators.forEach((indicator, i) => {
+                if (i === currentSlide) {
+                    indicator.classList.add('active');
+                } else {
+                    indicator.classList.remove('active');
+                }
+            });
+            
+            // Atualizar estado dos botões
+            updateButtonStates();
+        }
+        
+        /**
+         * Ir para o slide anterior
+         */
+        function prevSlide() {
+            if (currentSlide > 0) {
+                goToSlide(currentSlide - 1);
+            }
+        }
+        
+        /**
+         * Ir para o próximo slide
+         */
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                goToSlide(currentSlide + 1);
+            }
+        }
+        
+        /**
+         * Atualizar estado dos botões (desabilitar se no início/fim)
+         */
+        function updateButtonStates() {
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide === totalSlides - 1;
+        }
+        
+        /**
+         * Suporte para touch/swipe em dispositivos móveis
+         */
+        function handleTouchStart(e) {
+            startX = e.touches[0].clientX;
+            isDragging = true;
+        }
+        
+        function handleTouchMove(e) {
+            if (!isDragging) return;
+            
+            const currentX = e.touches[0].clientX;
+            const diff = startX - currentX;
+            
+            // Threshold para considerar um swipe
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) {
+                    // Swipe para a esquerda (próximo)
+                    nextSlide();
+                } else {
+                    // Swipe para a direita (anterior)
+                    prevSlide();
+                }
+                isDragging = false;
+            }
+        }
+        
+        function handleTouchEnd() {
+            isDragging = false;
+        }
+        
+        /**
+         * Suporte para navegação por teclado
+         */
+        function handleKeyboard(e) {
+            if (e.key === 'ArrowLeft') {
+                prevSlide();
+            } else if (e.key === 'ArrowRight') {
+                nextSlide();
+            }
+        }
+        
+        // Event listeners
+        prevBtn.addEventListener('click', prevSlide);
+        nextBtn.addEventListener('click', nextSlide);
+        
+        // Touch events para swipe
+        sliderTrack.addEventListener('touchstart', handleTouchStart, { passive: true });
+        sliderTrack.addEventListener('touchmove', handleTouchMove, { passive: true });
+        sliderTrack.addEventListener('touchend', handleTouchEnd);
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', handleKeyboard);
+        
+        // Auto-play (opcional - comentado por padrão)
+        /*
+        let autoplayInterval;
+        
+        function startAutoplay() {
+            autoplayInterval = setInterval(() => {
+                if (currentSlide < totalSlides - 1) {
+                    nextSlide();
+                } else {
+                    goToSlide(0);
+                }
+            }, 5000); // Mudar a cada 5 segundos
+        }
+        
+        function stopAutoplay() {
+            clearInterval(autoplayInterval);
+        }
+        
+        // Iniciar autoplay
+        startAutoplay();
+        
+        // Parar autoplay ao interagir
+        sliderTrack.addEventListener('mouseenter', stopAutoplay);
+        sliderTrack.addEventListener('mouseleave', startAutoplay);
+        */
+        
+        // Inicializar estado dos botões
+        updateButtonStates();
+    }
+
+
+
