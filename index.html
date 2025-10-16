@@ -130,32 +130,48 @@
                 <h2>A Nossa Equipa</h2>
                 <p>Conheça os membros dedicados que trabalham para tornar a escola melhor</p>
             </div>
-            <div class="team-grid">
-                <div class="team-member">
-                    <img src="https://via.placeholder.com/120" alt="Foto de João Silva" class="member-avatar">
-                    <div class="member-name">João Silva</div>
-                    <div class="member-role">Presidente</div>
-                    <p class="member-bio">Responsável pela coordenação geral e representação dos estudantes.</p>
+            <!-- Team Slider Container -->
+            <div class="team-slider-container">
+                <button class="slider-btn slider-btn-prev" id="team-slider-prev" aria-label="Membro anterior">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                
+                <div class="team-slider" id="team-slider">
+                    <div class="team-slider-track" id="team-slider-track">
+                        <div class="team-member">
+                            <img src="https://via.placeholder.com/120" alt="Foto de João Silva" class="member-avatar">
+                            <div class="member-name">João Silva</div>
+                            <div class="member-role">Presidente</div>
+                            <p class="member-bio">Responsável pela coordenação geral e representação dos estudantes.</p>
+                        </div>
+                        <div class="team-member">
+                            <img src="https://via.placeholder.com/120" alt="Foto de Maria Santos" class="member-avatar">
+                            <div class="member-name">Maria Santos</div>
+                            <div class="member-role">Vice-Presidente</div>
+                            <p class="member-bio">Apoia o presidente e coordena eventos culturais.</p>
+                        </div>
+                        <div class="team-member">
+                            <img src="https://via.placeholder.com/120" alt="Foto de Pedro Costa" class="member-avatar">
+                            <div class="member-name">Pedro Costa</div>
+                            <div class="member-role">Tesoureiro</div>
+                            <p class="member-bio">Gere as finanças e orçamento da associação.</p>
+                        </div>
+                        <div class="team-member">
+                            <img src="https://via.placeholder.com/120" alt="Foto de Ana Rodrigues" class="member-avatar">
+                            <div class="member-name">Ana Rodrigues</div>
+                            <div class="member-role">Secretária</div>
+                            <p class="member-bio">Responsável pela comunicação e documentação.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="team-member">
-                    <img src="https://via.placeholder.com/120" alt="Foto de Maria Santos" class="member-avatar">
-                    <div class="member-name">Maria Santos</div>
-                    <div class="member-role">Vice-Presidente</div>
-                    <p class="member-bio">Apoia o presidente e coordena eventos culturais.</p>
-                </div>
-                <div class="team-member">
-                    <img src="https://via.placeholder.com/120" alt="Foto de Pedro Costa" class="member-avatar">
-                    <div class="member-name">Pedro Costa</div>
-                    <div class="member-role">Tesoureiro</div>
-                    <p class="member-bio">Gere as finanças e orçamento da associação.</p>
-                </div>
-                <div class="team-member">
-                    <img src="https://via.placeholder.com/120" alt="Foto de Ana Rodrigues" class="member-avatar">
-                    <div class="member-name">Ana Rodrigues</div>
-                    <div class="member-role">Secretária</div>
-                    <p class="member-bio">Responsável pela comunicação e documentação.</p>
-                </div>
+                
+                <button class="slider-btn slider-btn-next" id="team-slider-next" aria-label="Próximo membro">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
             </div>
+            
+            <!-- Slider Indicators -->
+            <div class="slider-indicators" id="team-slider-indicators"></div>
         </div>
     </section>
 
